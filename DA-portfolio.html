@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Primary Meta Tags -->
+    <title>Shubhjeet Paul | Data Analyst Portfolio | Python, SQL & Power BI Expert</title>
+    <meta name="title" content="Shubhjeet Paul | Data Analyst Portfolio | Python, SQL & Power BI Expert">
+    <meta name="description" content="Portfolio of Shubhjeet Paul, a Data Analyst and TA at PhysicsWallah. Specialist in Python, SQL, Power BI, and Data Storytelling with 1.5+ years of experience.">
+    <meta name="keywords" content="Shubhjeet Paul, Data Analyst Portfolio, Python Data Science, SQL Expert, Power BI Developer, PhysicsWallah TA, Data Visualization, Tableau Analyst, Business Intelligence India">
+    <meta name="author" content="Shubhjeet Paul">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://shubhjeetpaul.me/">
+    <meta property="og:title" content="Shubhjeet Paul | Data Analyst & Insights Expert">
+    <meta property="og:description" content="Transforming raw data into actionable business insights. Explore my projects in Python, SQL, and Power BI.">
+    <meta property="og:image" content="https://images.lucidchart.com/blog/2017/10/Data-analyst-portfolio.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Shubhjeet Paul | Data Analyst Portfolio">
+    <meta property="twitter:description" content="Data Analyst specializing in end-to-end analytics and automated reporting.">
+
+    <!-- Structured Data (JSON-LD) for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Shubhjeet Paul",
+      "jobTitle": "Data Analyst",
+      "url": "https://shubhjeetpaul.me/",
+      "sameAs": [
+        "https://linkedin.com/in/shubhjeet-paul",
+        "https://github.com/shubh0924"
+      ],
+      "knowsAbout": ["Python", "SQL", "Power BI", "Data Visualization", "Machine Learning", "EDA"],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "PhysicsWallah"
+      }
+    }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0a0a0a; color: #d1d5db; scroll-behavior: smooth; }
+        @keyframes slide-up {
+            0% { opacity: 0; transform: translateY(30px); filter: blur(10px); }
+            100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+        }
+        .animate-slide-up { animation: slide-up 1s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+        .stories-gradient {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 50%, #991b1b 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .nav-link { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #9ca3af; transition: color 0.3s; }
+        .nav-link:hover { color: #ef4444; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0a0a0a; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #ef4444; }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+        
+        const Icon = ({ name, size = 20, className = "" }) => {
+            useEffect(() => { lucide.createIcons(); }, [name]);
+            return <i data-lucide={name} style={{ width: size, height: size }} className={className}></i>;
+        };
+
+        const App = () => {
+            const [isScrolled, setIsScrolled] = useState(false);
+            const [isModalOpen, setIsModalOpen] = useState(false);
+            const [isMenuOpen, setIsMenuOpen] = useState(false);
+            const [formStatus, setFormStatus] = useState('idle');
+
+            useEffect(() => {
+                const handleScroll = () => setIsScrolled(window.scrollY > 50);
+                window.addEventListener('scroll', handleScroll);
+                return () => window.removeEventListener('scroll', handleScroll);
+            }, []);
+
+            const handleSubmit = (e) => {
+                e.preventDefault();
+                setFormStatus('sending');
+                setTimeout(() => {
+                    setFormStatus('success');
+                    setTimeout(() => { setIsModalOpen(false); setFormStatus('idle'); }, 3000);
+                }, 1500);
+            };
+
+            const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
+            const experiences = [
+                {
+                    role: "TA - Data Analytics",
+                    company: "PhysicsWallah (PW)",
+                    location: "New Delhi, India",
+                    period: "Jan 2026 - Present",
+                    points: [
+                        "Conduct regular doubt-clearing and mentoring sessions on Python, SQL, Excel, Statistics, and Power BI.",
+                        "Guide learners through hands-on exercises, real-world datasets, and business case studies.",
+                        "Support learners in achieving key milestones like EDA, dashboard development, and end-to-end analytics projects.",
+                        "Mentor students in building industry-ready portfolios focused on data-driven storytelling."
+                    ]
+                },
+                {
+                    role: "Data Analyst",
+                    company: "Eleventure Group",
+                    location: "Gurugram, Haryana",
+                    period: "Nov 2025 - Dec 2025",
+                    points: [
+                        "Analyzed operational and service data to track performance, delays, and service KPIs.",
+                        "Automated manual reporting processes, reducing reporting effort by 30%.",
+                        "Coordinated between clients, vendors, and technical teams to ensure smooth service delivery.",
+                        "Provided troubleshooting and concept support for colleagues on performance data."
+                    ]
+                },
+                {
+                    role: "Data Science Intern",
+                    company: "Prepinsta Technologies",
+                    location: "Remote",
+                    period: "Apr 2024 - Jun 2025",
+                    points: [
+                        "Assisted trainees during training cycles by helping them understand Python, SQL, and Statistics.",
+                        "Contributed to the development of internal data analysis tools.",
+                        "Participated in data cleaning and preprocessing tasks for educational datasets."
+                    ]
+                }
+            ];
+
+            const projects = [
+                {
+                    title: "World Bank Data Analysis",
+                    date: "Sep 2024",
+                    description: "Processed 50,000+ records to visualize global population growth, fertility rates, and life expectancy trends across regions.",
+                    tags: ["Python", "Plotly", "Pandas", "NumPy"],
+                    icon: "globe",
+                    link: "https://github.com/SHUBH0924/World-Bank-Data-Analysis.git"
+                },
+                {
+                    title: "Amazon Monthly Sales - BI",
+                    date: "Aug 2024",
+                    description: "Designed a comprehensive Power BI dashboard tracking revenue, profit, and trends using DAX and Power Query for deep insights.",
+                    tags: ["Power BI", "DAX", "Power Query", "Excel"],
+                    icon: "layout",
+                    link: "https://github.com/SHUBH0924/Amazon-sales-BI-.git"
+                },
+                {
+                    title: "SQL Murder Mystery Solution",
+                    date: "July 2024",
+                    description: "Investigated and solved a complex case by executing detailed SQL queries on a database with over 50,000 entries.",
+                    tags: ["SQL", "SQLite3", "Google Colab"],
+                    icon: "search",
+                    link: "https://github.com/SHUBH0924/SQL-Murder-Mystery.git"
+                }
+            ];
+
+            return (
+                <div className="min-h-screen">
+                    {/* Navigation */}
+                    <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled || isMenuOpen ? 'bg-[#0a0a0a]/90 backdrop-blur-md py-4 border-b border-white/5' : 'bg-transparent py-6'}`}>
+                        <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
+                            <div className="text-2xl font-black tracking-tighter text-white">SHUBHJEET<span className="text-red-600">.</span></div>
+                            
+                            {/* Desktop Nav */}
+                            <div className="hidden md:flex gap-8 items-center">
+                                <a href="#about" className="nav-link">About</a>
+                                <a href="#experience" className="nav-link">Experience</a>
+                                <a href="#projects" className="nav-link">Projects</a>
+                                <button onClick={() => setIsModalOpen(true)} className="px-5 py-2 bg-red-700 hover:bg-red-800 text-white rounded-lg text-xs font-bold uppercase tracking-widest transition-all">Connect</button>
+                            </div>
+
+                            {/* Mobile Menu Toggle */}
+                            <div className="md:hidden flex items-center">
+                                <button onClick={toggleMenu} className="text-white p-2">
+                                    <Icon name={isMenuOpen ? "x" : "menu"} size={28} />
+                                </button>
+                            </div>
+                        </div>
+
+                        {/* Mobile Nav Overlay */}
+                        <div className={`md:hidden absolute top-full left-0 w-full bg-[#0a0a0a] border-b border-white/5 transition-all duration-300 overflow-hidden ${isMenuOpen ? 'max-h-screen opacity-100 py-8' : 'max-h-0 opacity-0 py-0'}`}>
+                            <div className="flex flex-col items-center gap-6">
+                                <a href="#about" onClick={toggleMenu} className="nav-link text-lg">About</a>
+                                <a href="#experience" onClick={toggleMenu} className="nav-link text-lg">Experience</a>
+                                <a href="#projects" onClick={toggleMenu} className="nav-link text-lg">Projects</a>
+                                <button onClick={() => { setIsModalOpen(true); toggleMenu(); }} className="mt-4 px-8 py-3 bg-red-700 text-white rounded-lg text-sm font-bold uppercase tracking-widest">Connect</button>
+                            </div>
+                        </div>
+                    </nav>
+
+                    {/* Hero */}
+                    <section className="relative min-h-screen flex flex-col items-center justify-center pt-20">
+                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(185,28,28,0.1),transparent_70%)]"></div>
+                        <div className="max-w-7xl mx-auto px-6 text-center z-10 animate-slide-up">
+                            <div className="inline-block px-4 py-1 border border-red-900/50 rounded-full bg-red-950/20 text-red-500 text-[10px] font-bold mb-6 tracking-[0.3em] uppercase">TA - Data Analytics @ PhysicsWallah</div>
+                            
+                            <div className="flex flex-col items-center mb-10">
+                                <h1 className="text-5xl sm:text-6xl md:text-[9.5rem] font-black text-white leading-none tracking-tighter relative z-20">
+                                    Data Into
+                                </h1>
+                                <h1 className="text-6xl sm:text-8xl md:text-[10rem] font-black uppercase stories-gradient leading-none tracking-tighter -mt-2 sm:-mt-4 md:-mt-12 relative z-10">
+                                    Insights.
+                                </h1>
+                            </div>
+
+                            <p className="max-w-2xl mx-auto text-gray-400 text-base md:text-lg mb-10 leading-relaxed">
+                                B.Tech CSE Graduate with 1.5+ years of experience in Python, SQL, and BI tools. 
+                                Specializing in data cleaning, dashboard development, and teaching technical concepts.
+                            </p>
+                            <div className="flex flex-wrap gap-4 justify-center">
+                                <a href="#projects" className="px-8 py-4 bg-red-700 hover:bg-red-800 text-white rounded-xl font-bold transition-all">Featured Work</a>
+                                <a href="#experience" className="px-8 py-4 bg-white/5 border border-white/10 rounded-xl font-bold backdrop-blur-md transition-all hover:bg-white/10">My Career</a>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* About Section */}
+                    <section id="about" className="py-24 bg-[#0a0a0a]">
+                        <div className="max-w-7xl mx-auto px-6">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                                <div className="space-y-6">
+                                    <h2 className="text-4xl font-black text-white uppercase italic">Brief <span className="text-red-700 not-italic">Background</span></h2>
+                                    <p className="text-gray-400 leading-relaxed">
+                                        I am a Computer Science Engineer (CSE '23) passionate about uncovering the narratives hidden within numbers. 
+                                        Currently, I serve as a Teaching Assistant at PhysicsWallah, where I bridge the gap between complex data theories and practical industry applications.
+                                    </p>
+                                    <p className="text-gray-400 leading-relaxed">
+                                        My journey includes working on service performance data at Eleventure Group and mentoring aspiring data scientists at PrepInsta. I hold certifications in Generative AI from AWS and Advanced Python from IIT Kanpur.
+                                    </p>
+                                    <div className="flex gap-6 pt-4">
+                                        <div className="text-center">
+                                            <div className="text-3xl font-bold text-white">1.5+</div>
+                                            <div className="text-[10px] text-red-600 uppercase font-bold tracking-widest">Years Experience</div>
+                                        </div>
+                                        <div className="text-center">
+                                            <div className="text-3xl font-bold text-white">5-Star</div>
+                                            <div className="text-[10px] text-red-600 uppercase font-bold tracking-widest">SQL (HackerRank)</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="bg-[#111] p-8 rounded-3xl border border-white/5 space-y-6">
+                                    <h4 className="text-white font-bold uppercase tracking-widest text-xs">Education</h4>
+                                    <div>
+                                        <p className="text-white font-bold">B.Tech in Computer Science</p>
+                                        <p className="text-gray-500 text-sm">Allenhouse Institute of Technology (AKTU)</p>
+                                        <p className="text-red-700 text-[10px] font-bold">2019 - 2023 | Grade: 7.59</p>
+                                    </div>
+                                    <div className="pt-4 border-t border-white/5">
+                                        <h4 className="text-white font-bold uppercase tracking-widest text-xs mb-4">Core Skills</h4>
+                                        <div className="flex flex-wrap gap-2">
+                                            {["Python", "SQL", "Power BI", "Tableau", "Pandas", "Excel", "DAX", "Stats"].map(s => (
+                                                <span key={s} className="px-3 py-1 bg-red-950/20 text-red-500 rounded-lg text-xs font-semibold">{s}</span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Experience Section */}
+                    <section id="experience" className="py-24">
+                        <div className="max-w-7xl mx-auto px-6">
+                            <h2 className="text-4xl font-black text-white uppercase italic mb-8">Professional <span className="text-red-700 not-italic">Experience</span></h2>
+                            <div className="space-y-12">
+                                {experiences.map((exp, idx) => (
+                                    <div key={idx} className="relative pl-8 border-l-2 border-red-900/30">
+                                        <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-red-700 border-4 border-[#0a0a0a]"></div>
+                                        <div className="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                                            <div>
+                                                <h3 className="text-xl font-bold text-white">{exp.role}</h3>
+                                                <p className="text-red-600 font-semibold">{exp.company}</p>
+                                            </div>
+                                            <div className="md:text-right mt-1 md:mt-0">
+                                                <p className="text-gray-400 text-sm font-bold">{exp.period}</p>
+                                                <p className="text-gray-600 text-xs">{exp.location}</p>
+                                            </div>
+                                        </div>
+                                        <ul className="space-y-3">
+                                            {exp.points.map((p, i) => (
+                                                <li key={i} className="text-gray-400 text-sm flex items-start gap-2">
+                                                    <span className="text-red-700 mt-1.5 w-1.5 h-1.5 rounded-full bg-red-700 shrink-0"></span>
+                                                    {p}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Projects Section */}
+                    <section id="projects" className="py-24 bg-[#0d0d0d]">
+                        <div className="max-w-7xl mx-auto px-6">
+                            <h2 className="text-4xl font-black text-white uppercase italic mb-8">Analytical <span className="text-red-700 not-italic">Projects</span></h2>
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                                {projects.map((p, idx) => (
+                                    <div key={idx} className="group bg-[#111] border border-white/5 rounded-[2.5rem] p-8 hover:border-red-900/30 transition-all flex flex-col h-full">
+                                        <Icon name={p.icon} size={40} className="text-red-600 mb-6 group-hover:scale-110 transition-transform" />
+                                        <div className="flex justify-between items-start mb-4">
+                                            <h3 className="text-2xl font-bold text-white leading-tight">{p.title}</h3>
+                                            <span className="text-[10px] text-gray-600 font-bold uppercase shrink-0 mt-1 ml-2">{p.date}</span>
+                                        </div>
+                                        <p className="text-gray-400 text-sm mb-8 flex-grow">{p.description}</p>
+                                        <div className="flex flex-wrap gap-2 mb-8">
+                                            {p.tags.map(tag => (
+                                                <span key={tag} className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[9px] font-bold uppercase text-gray-500">{tag}</span>
+                                            ))}
+                                        </div>
+                                        <a href={p.link} className="flex items-center gap-2 text-xs font-bold text-red-500 uppercase tracking-widest hover:gap-3 transition-all" target="_blank">
+                                            Explore Case Study <Icon name="arrow-right" size={14} />
+                                        </a>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Footer */}
+                    <footer className="py-16 border-t border-white/5 text-center">
+                        <div className="flex justify-center gap-6 mb-8 text-gray-400">
+                            <a href="https://linkedin.com/in/shubhjeet-paul" className="hover:text-red-500 transition-colors" target="_blank"><Icon name="linkedin" /></a>
+                            <a href="https://github.com/shubh0924" className="hover:text-red-500 transition-colors" target="_blank"><Icon name="github" /></a>
+                            <a href="mailto:shubhjeetpaul@gmail.com" className="hover:text-red-500 transition-colors" target="_blank"><Icon name="mail" /></a>
+                        </div>
+                        <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-gray-700">Built with ❤️ • 2026 Shubhjeet Paul</p>
+                    </footer>
+
+                    {/* Modal */}
+                    {isModalOpen && (
+                        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 backdrop-blur-xl">
+                            <div className="absolute inset-0 bg-black/60" onClick={() => setIsModalOpen(false)}></div>
+                            <div className="relative w-full max-w-lg bg-[#111] border border-red-900/30 rounded-[2.5rem] p-10 animate-slide-up shadow-2xl">
+                                <button onClick={() => setIsModalOpen(false)} className="absolute top-8 right-8 text-gray-500 hover:text-white"><Icon name="x" size={24} /></button>
+                                {formStatus === 'success' ? (
+                                    <div className="text-center py-10 space-y-4">
+                                        <Icon name="check-circle" size={56} className="text-green-500 mx-auto" />
+                                        <h3 className="text-2xl font-bold text-white">Message Sent!</h3>
+                                        <p className="text-gray-400">Thanks for reaching out, Shubhjeet will respond shortly.</p>
+                                    </div>
+                                ) : (
+                                    <>
+                                        <h3 className="text-3xl font-bold text-white mb-2">Let's <span className="text-red-700">Collab</span></h3>
+                                        <p className="text-gray-500 text-sm mb-8">Discuss a project or a potential role.</p>
+                                        <form onSubmit={handleSubmit} className="space-y-4">
+                                            <input required type="text" placeholder="Full Name" className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white outline-none focus:border-red-700" />
+                                            <input required type="email" placeholder="Email Address" className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white outline-none focus:border-red-700" />
+                                            <textarea required rows="4" placeholder="How can I help you?" className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white outline-none focus:border-red-700 resize-none"></textarea>
+                                            <button type="submit" className="w-full py-5 bg-red-700 hover:bg-red-800 text-white rounded-xl font-bold transition-all transform active:scale-95">
+                                                {formStatus === 'sending' ? 'Delivering...' : 'Send Inquiry'}
+                                            </button>
+                                        </form>
+                                    </>
+                                )}
+                            </div>
+                        </div>
+                    )}
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>
